@@ -1,5 +1,6 @@
+import 'package:extendlyshop/components/actions.dart';
+import 'package:extendlyshop/components/logo_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TopBarContents extends StatefulWidget {
@@ -33,8 +34,10 @@ class _TopBarContentsState extends State<TopBarContents> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const CircleAvatar(
-                child: Text("Logo"),
+              const LogoWidget(
+                height: 60,
+                width: 60,
+                fontSize: 10,
               ),
               SizedBox(width: screenSize.width / 15),
               navBarText("HOME", _isHovering, (value) {
@@ -67,28 +70,41 @@ class _TopBarContentsState extends State<TopBarContents> {
                   value ? _isHovering[0] = true : _isHovering[0] = false;
                 });
               }),
-              Container(
-                height: 30.h,
-                width: 194.w,
-                padding: const EdgeInsets.only(bottom: 10),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30.r),
-                    color: const Color(0xffe4e4e4)),
-                child: Center(
-                  child: TextField(
-                    style: const TextStyle().copyWith(
-                        fontSize: 12.sp,
-                        fontFamily: GoogleFonts.inter().fontFamily),
-                    decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.search),
-                      hintText: 'Search',
-                      hintStyle: const TextStyle().copyWith(
-                          fontSize: 12.sp,
-                          fontFamily: GoogleFonts.inter().fontFamily),
-                      border: InputBorder.none,
+              Row(
+                children: [
+                  Container(
+                    height: 30,
+                    width: 194,
+                    padding: const EdgeInsets.only(bottom: 10),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: const Color(0xffe4e4e4)),
+                    child: Center(
+                      child: TextField(
+                        style: const TextStyle().copyWith(
+                            fontSize: 12,
+                            fontFamily: GoogleFonts.inter().fontFamily),
+                        decoration: InputDecoration(
+                          prefixIconConstraints:
+                              const BoxConstraints(maxHeight: 20),
+                          prefixIcon: Image.asset(
+                            "assets/icons/search.png",
+                            scale: 3,
+                          ),
+                          hintText: 'Search',
+                          hintStyle: const TextStyle().copyWith(
+                              fontSize: 12,
+                              fontFamily: GoogleFonts.inter().fontFamily),
+                          border: InputBorder.none,
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                  const SizedBox(
+                    width: 23,
+                  ),
+                  const ActionsIcons()
+                ],
               )
             ],
           ),
@@ -110,9 +126,10 @@ Widget navBarText(text, isHovering, onhover) => InkWell(
         Text(
           text,
           style: TextStyle(
-              color: isHovering[0] ? Colors.black : Colors.black87,
-              fontWeight: FontWeight.bold,
-              fontSize: 16),
+            color: isHovering[0] ? Colors.black : Colors.black87,
+            fontWeight: FontWeight.bold,
+            fontSize: 12,
+          ).copyWith(fontFamily: GoogleFonts.inter().fontFamily),
         ),
         const SizedBox(height: 5),
         Visibility(

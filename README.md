@@ -1,9 +1,26 @@
-# extendlyshop
+# extendlyshop UI Design challenge
 
-A new Flutter project.
 
-## Getting Started
+## Hours Consume 
+6:AM to 7:23PM Oct 4, 2022
 
-This project is a starting point for a Flutter application.
+## FILES
+- #components for small widget like 🖱 
 
-## Responsive Design for extendlyshop
+- #widget for atleast almost a page widget
+
+- #global for text/colors that can be shared glably
+
+- #responsive handles the responsiveness logic
+
+## Packages Used
+1. Badge
+2. Google-Font
+3. Screen Util
+4. Flutter-svg
+
+
+
+
+
+
