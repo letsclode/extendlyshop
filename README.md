@@ -1,5 +1,9 @@
 # extendlyshop
-This a challenge now code!
 
-Oct 4, 2022 @ 6:30 PM
+A new Flutter project.
 
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+## Responsive Design for extendlyshop
